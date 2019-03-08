@@ -21,8 +21,6 @@ class Smurfs extends Component {
               >
                 <div>
                   <h2> {smurf.name}</h2>
-                </div>
-                <div>
                   <p>Age: {smurf.age}</p>
                   <p>Height: {smurf.height}</p>
                 </div>
