@@ -20,7 +20,23 @@ const initialState = {
   Components can then read your store as, `state` and not `state.fooReducer`.
 */
 export default (state = initialState, action) => {
-  return {
-    state
-  };
+  switch (action.type) {
+    case GETSUCCESS:
+      return {
+        ...state,
+        smurfs: action.payload
+      };
+    case ADDSUCCESS:
+      return {
+        ...state,
+        smurfs: action.payload
+      };
+    case DELSUCCESS:
+      return {
+        ...state,
+        smurfs: action.payload
+      };
+    default:
+      return state;
+  }
 };
