@@ -17,6 +17,8 @@ let smurfs = [
     name: 'Brainey',
     age: 200,
     height: '5cm',
+    img:
+      'https://vignette.wikia.nocookie.net/p__/images/d/d3/Brainy_and_snappy.png/revision/latest?cb=20170709023913&path-prefix=protagonist',
     id: 1
   }
 ];
@@ -26,9 +28,9 @@ server.get('/smurfs', (req, res) => {
 let smurfId = 0;
 
 server.post('/smurfs', (req, res) => {
-  const { name, age, height } = req.body;
-  const newSmurf = { name, age, height, id: smurfId };
-  if (!name || !age || !height) {
+  const { name, age, height, img } = req.body;
+  const newSmurf = { name, age, height, img, id: smurfId, img };
+  if (!name || !age || !height || !img) {
     return sendUserError(
       'Ya gone did smurfed! Name/Age/Height are all required to create a smurf in the smurf DB.',
       res

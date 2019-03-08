@@ -19,11 +19,10 @@ class Smurfs extends Component {
                 onClick={() => this.handleDeleteSmurf(smurf.id)}
                 key={smurf.id}
               >
-                <div>
-                  <h2> {smurf.name}</h2>
-                  <p>Age: {smurf.age}</p>
-                  <p>Height: {smurf.height}</p>
-                </div>
+                <h2> {smurf.name}</h2>
+                <p>Age: {smurf.age}</p>
+                <p>Height: {smurf.height}</p>
+                <img style={pic} src={smurf.img} alt="" />
               </div>
             );
           })}
@@ -35,6 +34,11 @@ class Smurfs extends Component {
 
 const container = {
   color: 'white'
+};
+
+const pic = {
+  width: '300px',
+  height: '300px'
 };
 
 const card = {

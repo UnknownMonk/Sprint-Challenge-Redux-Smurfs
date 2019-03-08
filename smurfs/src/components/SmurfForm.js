@@ -6,7 +6,8 @@ class SmurfForm extends Component {
   state = {
     name: '',
     age: '',
-    height: ''
+    height: '',
+    img: ''
   };
 
   handleInputChange = e => {
@@ -14,9 +15,9 @@ class SmurfForm extends Component {
   };
 
   handleAddSmurf = () => {
-    const { name, age, height } = this.state;
-    this.props.addSmurfs({ name, age, height });
-    this.setState({ name: '', age: '', height: '' });
+    const { name, age, height, img } = this.state;
+    this.props.addSmurfs({ name, age, height, img });
+    this.setState({ name: '', age: '', height: '', img: ' ' });
   };
 
   render() {
@@ -44,6 +45,14 @@ class SmurfForm extends Component {
           name="height"
           type="text"
           placeholder="Height"
+          onChange={this.handleInputChange}
+        />
+        <input
+          className="input"
+          value={this.state.img}
+          name="img"
+          type="text"
+          placeholder="Image"
           onChange={this.handleInputChange}
         />
         <button onClick={() => this.handleAddSmurf()} type="button">
