@@ -8,6 +8,9 @@ export const ADDFAILURE = 'ADDFAILURE';
 export const DELLOADING = 'DELLOADING';
 export const DELSUCCESS = 'DELSUCCESS';
 export const DELFAILURE = 'DELFAILURE';
+export const PUTLOADING = 'PUTLOADING';
+export const PUTSUCCESS = 'PUTSUCCESS';
+export const PUTFAILURE = 'PUTFAILURE';
 
 export const fetchSmurfs = () => {
   return dispatch => {
@@ -65,6 +68,26 @@ export const delSmurf = id => {
       })
       .catch(err => {
         dispatch({ type: DELFAILURE, payload: 'No Smurf for you' });
+      });
+  };
+};
+
+export const updateSmurfs = (id, newSmurf) => {
+  return dispatch => {
+    dispatch({ type: PUTLOADING });
+    axios
+      .put(`http://localhost:3333/smurfs/${id}`, newSmurf)
+
+      .then(res => {
+        console.log(res);
+
+        dispatch({
+          type: PUTSUCCESS,
+          payload: res.data
+        });
+      })
+      .catch(err => {
+        dispatch({ type: PUTFAILURE, payload: 'No Smurf for you' });
       });
   };
 };

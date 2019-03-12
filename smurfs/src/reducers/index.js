@@ -1,7 +1,7 @@
 /*
   Be sure to import in all of the action types from `../actions`
 */
-import { GETSUCCESS, ADDSUCCESS, DELSUCCESS } from '../actions';
+import { GETSUCCESS, ADDSUCCESS, DELSUCCESS, PUTSUCCESS } from '../actions';
 
 const initialState = {
   smurfs: [],
@@ -32,6 +32,11 @@ export default (state = initialState, action) => {
         smurfs: action.payload
       };
     case DELSUCCESS:
+      return {
+        ...state,
+        smurfs: action.payload
+      };
+    case PUTSUCCESS:
       return {
         ...state,
         smurfs: action.payload
